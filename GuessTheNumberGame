@@ -1,0 +1,70 @@
+//Guessing the Number Game!!!
+//Hpoe you will enjoy it 
+//My first Game Using OOPs Concepts
+import java.util.*;
+class Game{
+	public int number;
+	public int inputNumber;
+	public int noOfGuesses;
+	public int getNoOfGuesses(){
+		return noOfGuesses;
+	}
+	void setNoOfGuesses(int noOfGuesses){
+		this.noOfGuesses=noOfGuesses;
+	}
+	public Game(){
+		Random random=new Random();
+		this.number=random.nextInt(100);//0 to 100 integers
+	}
+	void takeUserInput(){
+		System.out.println("Guess the Number between 0 to 100");
+		Scanner sc=new Scanner(System.in);
+		inputNumber=sc.nextInt();
+	}
+	boolean isCorrectNumber(){
+		if(inputNumber==number){
+			return true;
+		}
+		else if(inputNumber<number){
+			System.out.println("Enter a bigger number...");
+		}
+		else{
+			System.out.println("Enter a Smaller number...");
+		}
+		return false;
+	}
+}
+public class Main {
+	public static void main(String[] args) {
+		System.out.println();
+		System.out.println("Game Guess the Number!!!");
+		System.out.println();
+		int count=0;
+		Game g=new Game();
+		boolean b=false;
+		while(!b){
+			g.takeUserInput();
+			b=g.isCorrectNumber();
+			if(b){
+				System.out.println("Hurray! You Won The Game...");
+			}
+			else{
+				System.out.println(b);
+			}
+			System.out.println();
+			count++;
+		}
+		if(count%10==1){
+			System.out.println("You came "+count+"st");
+		}
+		else if(count%10==2){
+			System.out.println("You came "+count+"nd");
+		}
+		else if(count%10==3){
+			System.out.println("You came "+count+"rd");
+		}
+		else{
+			System.out.println("You came "+count+"th");
+		}
+	}
+}
